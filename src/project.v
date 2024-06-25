@@ -6,19 +6,16 @@
 `default_nettype none
 
 module tt_um_tt_um_dice_roller (
-    input  wire [7:0] ui_in,    // Dedicated inputs
-    output wire [7:0] uo_out,   // Dedicated outputs
-    input  wire [7:0] uio_in,   // IOs: Input path
-    output wire [7:0] uio_out,  // IOs: Output path
-    output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
-    input  wire       ena,      // always 1 when the design is powered, so you can ignore it
-    input  wire       clk,      // clock
-    input  wire       rst_n     // reset_n - low to reset
+    input wire clk,
+    input wire reset,
+    input wire [7:0] dip_switch, // 8-bit DIP switch input
+    output wire [6:0] seg,  // Seven segment output
+    output wire [3:0] an    // Anode control for 4 digits
 );
 
   // All output pins must be assigned. If not used, assign to 0.
-  assign uio_out = 0;
-  assign uio_oe  = 0;
+    output wire [6:0] seg,  // Seven segment output
+    output wire [3:0] an    // Anode control for 4 digits
 
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, clk, rst_n, 1'b0};
@@ -26,6 +23,27 @@ module tt_um_tt_um_dice_roller (
 tt_um_dice_roller
     .clk(clk),
     .reset(rst_n),
+    .random_number(random_number),
+    .seg(seg),
+    .an(an)
+endmodule
+
+module tt_um_seven_segment_display (
+    input wire clk,
+    input wire reset,
+    input wire [5:0] random_number
+);
+
+  // All output pins must be assigned. If not used, assign to 0.
+    output reg [6:0] seg,  // Seven segment output
+    output reg [3:0] an    // Anode control for 4 digits
+
+  // List all unused inputs to prevent warnings
+  wire _unused = &{ena, clk, rst_n, 1'b0};
+    
+tt_um_seven_segment_display
+    .clk(clk),
+    .reset(reset),
     .random_number(random_number),
     .seg(seg),
     .an(an)
