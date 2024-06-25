@@ -1,4 +1,4 @@
-module dice_roller (
+module tt_um_dice_roller (
     input wire clk,
     input wire reset,
     input wire [7:0] dip_switch, // 8-bit DIP switch input
@@ -46,7 +46,7 @@ module dice_roller (
     end
 
     // Instantiate the seven segment display module
-    seven_segment_display display (
+    tt_um_seven_segment_display display (
         .clk(clk),
         .reset(reset),
         .mode_switch(mode_switch),
@@ -58,7 +58,7 @@ module dice_roller (
     );
 endmodule
 
-module seven_segment_display (
+module tt_um_seven_segment_display (
     input wire clk,
     input wire reset,
     input wire mode_switch,       // Mode switch input (0: Display dice type/modifier, 1: Roll dice)
