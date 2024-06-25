@@ -41,10 +41,11 @@ module tt_um_seven_segment_display (
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, clk, rst_n, 1'b0};
     
-tt_um_seven_segment_display
+    tt_um_seven_segment_display top(
     .clk(clk),
     .reset(reset),
     .random_number(random_number),
     .seg(seg),
     .an(an)
-endmodule
+    );
+        endmodule
