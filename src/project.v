@@ -5,7 +5,7 @@
 
 `default_nettype none
 
-module tt_um_tt_um_dice_roller (
+module tt_um_dice_roller (
     input wire clk,
     input wire reset,
     input wire [7:0] dip_switch, // 8-bit DIP switch input
