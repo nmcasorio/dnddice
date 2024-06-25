@@ -9,7 +9,7 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works | |
 
-This project uses an LSFR register to randomize different number sets that represent the standard dice used in Tabletop RPG Systems; d4, d6, d8, d10, d12, d20, d100. I then use an adder to add a modifier to that end result. It then has a seven segment display module that converts the output into a number.
+This project uses an LSFR register to randomize different number sets that represent the standard dice used in Tabletop RPG Systems; d4, d6, d8, d10, d12, d20. I then use an adder to add a modifier to that end result. It then has a seven segment display module that converts the output into a number.
 
 ## External Hardware | |
 
